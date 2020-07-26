@@ -1,0 +1,3 @@
+[2020-07-24 11:58:28,409 WARNING] Shards for corpus train already exist, won't be overwritten, pass the `-overwrite` option if you want to.
+[2020-07-24 11:58:28,410 INFO] Building & saving validation data...
+[2020-07-24 11:58:28,410 WARNING] Shards for corpus valid already exist, won't be overwritten, pass the `-overwrite` option if you want to.

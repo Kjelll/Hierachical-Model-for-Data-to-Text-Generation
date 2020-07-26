@@ -1,0 +1,150 @@
+[2020-07-24 12:04:32,917 INFO] NMTModel(
+  (encoder): HierarchicalTransformerEncoder(
+    (embeddings): TableEmbeddings(
+      (value_embeddings): Embedding(10149, 600, padding_idx=1)
+      (pos_embeddings): Embedding(41, 20, padding_idx=1)
+      (merge): Linear(in_features=620, out_features=600, bias=True)
+      (activation): ReLU()
+    )
+    (unit_encoder): TransformerEncoder(
+      (layers): ModuleList(
+        (0): TransformerEncoderLayer(
+          (self_attn): MultiHeadSelfAttention(
+            (out_proj): Linear(in_features=600, out_features=600, bias=True)
+            (key_glu): GatedLinear(
+              (glu): GLU(dim=-1)
+              (linear_layers): ModuleList(
+                (0): Linear(in_features=150, out_features=150, bias=True)
+              )
+            )
+            (query_glu): GatedLinear(
+              (glu): GLU(dim=-1)
+              (linear_layers): ModuleList(
+                (0): Linear(in_features=150, out_features=150, bias=True)
+              )
+            )
+          )
+          (norm): LayerNorm(torch.Size([600]), eps=1024, elementwise_affine=0.5)
+          (dropout): Dropout(p=0.5)
+          (feedforward): FeedForward(
+            (linear1): Linear(in_features=600, out_features=1024, bias=True)
+            (linear2): Linear(in_features=1024, out_features=600, bias=True)
+            (dropout): Dropout(p=0.5)
+            (norm): LayerNorm(torch.Size([600]), eps=1e-05, elementwise_affine=True)
+          )
+        )
+        (1): TransformerEncoderLayer(
+          (self_attn): MultiHeadSelfAttention(
+            (out_proj): Linear(in_features=600, out_features=600, bias=True)
+            (key_glu): GatedLinear(
+              (glu): GLU(dim=-1)
+              (linear_layers): ModuleList(
+                (0): Linear(in_features=150, out_features=150, bias=True)
+              )
+            )
+            (query_glu): GatedLinear(
+              (glu): GLU(dim=-1)
+              (linear_layers): ModuleList(
+                (0): Linear(in_features=150, out_features=150, bias=True)
+              )
+            )
+          )
+          (norm): LayerNorm(torch.Size([600]), eps=1024, elementwise_affine=0.5)
+          (dropout): Dropout(p=0.5)
+          (feedforward): FeedForward(
+            (linear1): Linear(in_features=600, out_features=1024, bias=True)
+            (linear2): Linear(in_features=1024, out_features=600, bias=True)
+            (dropout): Dropout(p=0.5)
+            (norm): LayerNorm(torch.Size([600]), eps=1e-05, elementwise_affine=True)
+          )
+        )
+      )
+      (final_norm): LayerNorm(torch.Size([600]), eps=1e-05, elementwise_affine=True)
+    )
+    (chunk_encoder): TransformerEncoder(
+      (layers): ModuleList(
+        (0): TransformerEncoderLayer(
+          (self_attn): MultiHeadSelfAttention(
+            (out_proj): Linear(in_features=600, out_features=600, bias=True)
+            (key_glu): GatedLinear(
+              (glu): GLU(dim=-1)
+              (linear_layers): ModuleList(
+                (0): Linear(in_features=150, out_features=150, bias=True)
+              )
+            )
+            (query_glu): GatedLinear(
+              (glu): GLU(dim=-1)
+              (linear_layers): ModuleList(
+                (0): Linear(in_features=150, out_features=150, bias=True)
+              )
+            )
+          )
+          (norm): LayerNorm(torch.Size([600]), eps=1024, elementwise_affine=0.5)
+          (dropout): Dropout(p=0.5)
+          (feedforward): FeedForward(
+            (linear1): Linear(in_features=600, out_features=1024, bias=True)
+            (linear2): Linear(in_features=1024, out_features=600, bias=True)
+            (dropout): Dropout(p=0.5)
+            (norm): LayerNorm(torch.Size([600]), eps=1e-05, elementwise_affine=True)
+          )
+        )
+        (1): TransformerEncoderLayer(
+          (self_attn): MultiHeadSelfAttention(
+            (out_proj): Linear(in_features=600, out_features=600, bias=True)
+            (key_glu): GatedLinear(
+              (glu): GLU(dim=-1)
+              (linear_layers): ModuleList(
+                (0): Linear(in_features=150, out_features=150, bias=True)
+              )
+            )
+            (query_glu): GatedLinear(
+              (glu): GLU(dim=-1)
+              (linear_layers): ModuleList(
+                (0): Linear(in_features=150, out_features=150, bias=True)
+              )
+            )
+          )
+          (norm): LayerNorm(torch.Size([600]), eps=1024, elementwise_affine=0.5)
+          (dropout): Dropout(p=0.5)
+          (feedforward): FeedForward(
+            (linear1): Linear(in_features=600, out_features=1024, bias=True)
+            (linear2): Linear(in_features=1024, out_features=600, bias=True)
+            (dropout): Dropout(p=0.5)
+            (norm): LayerNorm(torch.Size([600]), eps=1e-05, elementwise_affine=True)
+          )
+        )
+      )
+      (final_norm): LayerNorm(torch.Size([600]), eps=1e-05, elementwise_affine=True)
+    )
+  )
+  (decoder): HierarchicalRNNDecoder(
+    (embeddings): Embeddings(
+      (make_embedding): Sequential(
+        (emb_luts): Elementwise(
+          (0): Embedding(10149, 600, padding_idx=1)
+        )
+      )
+    )
+    (dropout): Dropout(p=0.5)
+    (rnn): StackedLSTM(
+      (dropout): Dropout(p=0.5)
+      (layers): ModuleList(
+        (0): LSTMCell(1200, 600)
+        (1): LSTMCell(600, 600)
+      )
+    )
+    (attn): HierarchicalAttention(
+      (unit_scorer): AttentionScorer(
+        (linear_in): Linear(in_features=600, out_features=20, bias=False)
+      )
+      (chunk_scorer): AttentionScorer(
+        (linear_in): Linear(in_features=600, out_features=600, bias=False)
+      )
+      (linear_out): Linear(in_features=1200, out_features=600, bias=False)
+    )
+  )
+  (generator): CopyGenerator(
+    (linear): Linear(in_features=600, out_features=10149, bias=True)
+    (linear_copy): Linear(in_features=600, out_features=1, bias=True)
+  )
+)

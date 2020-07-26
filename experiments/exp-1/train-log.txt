@@ -1,0 +1,12 @@
+[2020-07-24 14:49:15,219 INFO] encoder: 17348516
+[2020-07-24 14:49:15,220 INFO] decoder: 14401750
+[2020-07-24 14:49:15,220 INFO] * number of parameters: 31750266
+[2020-07-24 14:49:15,223 INFO] Starting training on CPU, could be very slow
+[2020-07-24 14:49:15,223 INFO] Start training loop and validate every 10000 steps...
+[2020-07-24 14:49:15,223 INFO] Loading dataset from experiments/exp-1/data/data.train.0.pt
+[2020-07-24 14:49:17,193 INFO] number of examples: 3398
+[2020-07-24 16:00:34,980 INFO] Step 50/  100; acc:   4.42; ppl: 586.95; xent: 6.37; lr: 0.00100; 491/244 tok/s;   4280 sec
+[2020-07-24 16:05:43,745 INFO] Loading dataset from experiments/exp-1/data/data.train.0.pt
+[2020-07-24 16:05:45,760 INFO] number of examples: 3398
+[2020-07-24 17:11:27,241 INFO] Step 100/  100; acc:  16.80; ppl: 134.33; xent: 4.90; lr: 0.00100; 495/251 tok/s;   8532 sec
+[2020-07-24 17:11:27,327 INFO] Saving checkpoint experiments/exp-1/models/model_step_100.pt
